@@ -13,6 +13,7 @@ class CreateFriendPostTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('friend_post');
         Schema::create('friend_post', function(Blueprint $table) {
             $table->increments('id');
             $table->integer('friend_id')->unsigned();

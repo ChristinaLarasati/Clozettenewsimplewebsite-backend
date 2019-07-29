@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'email', 'password', 'profile_picture', 'bio'
+        'username', 'email', 'password', 'profile_picture', 'bio', 'no_telp', 'negara'
     ];
 
     /**
@@ -44,5 +44,10 @@ class User extends Authenticatable
     }
     public function friends1() {
         return $this->hasMany('App\Friend', 'user_id_2');
+    }
+
+    public function user()
+    {
+    return $this->belongsTo(User::class);
     }
 }

@@ -13,6 +13,7 @@ class CreateFriendsTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('friends');
         Schema::create('friends', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id_1')->unsigned();

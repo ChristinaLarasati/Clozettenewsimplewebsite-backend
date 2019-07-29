@@ -74,6 +74,60 @@
                             @endif
                         </div>
 
+                        <!-- <div class="form-group">
+                            <label for="tgl_lahir" class="col-md-4 control-label">Tanggal Lahir</label>
+
+                            <div class='col-md-6'>
+                              <div class="form-group">
+                                  <div class='input-group date' id='tgl_lahir' data-provide="datepicker">
+                                      <input type="text" class="form-control">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                              <script type="text/javascript">
+                                  $(function () {
+                                      $('.datepicker').datepicker();
+                                  });
+                              </script>
+
+                                @if ($errors->has('tgl_lahir'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('tgl_lahir') }}</strong>
+                                    </span>
+                                @endif
+                          </div> -->
+
+                        <div class="form-group">
+                            <label for="no_telp" class="col-md-4 control-label">Nomor Handphone</label>
+
+                            <div class="col-md-6">
+                                <input id="no_telp" type="text" class="form-control" name="no_telp" required></input>
+                            </div>
+
+                            @if ($errors->has('no_telp'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('no_telp') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+
+                        <div class="form-group">
+                            <label for="negara" class="col-md-4 control-label">Negara</label>
+
+                            <div class="col-md-6">
+                                <input id="negara" type="text" class="form-control" name="negara" required></input>
+                            </div>
+
+                            @if ($errors->has('negara'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('negara') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

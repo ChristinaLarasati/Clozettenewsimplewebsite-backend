@@ -13,6 +13,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('users');
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('username');
@@ -20,6 +21,10 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('profile_picture');
             $table->text('bio');
+            // $table->date('tgl_lahir');
+          //  $table->string('kode_verif_admin');
+            $table->string('no_telp');
+            $table->string('negara');
             $table->rememberToken();
             $table->timestamps();
         });

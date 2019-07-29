@@ -33,9 +33,9 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required|max:255|unique:posts',
+            'title' => 'required','max:255','unique:posts',
             'image' => 'image',
-            'body' => 'required|max:255'
+            'body' => 'required','max:255',
         ]);
         $post = new Post;
         $post->title = $request->title;
@@ -106,9 +106,9 @@ class PostController extends Controller
             abort(404);
         }
         $this->validate($request, [
-            'title' => "required|max:255|unique:posts,title,$id",
+            'title' => 'equired','max:255','unique:posts','title',$id,
             'image' => 'image',
-            'body' => 'required|max:255'
+            'body' => 'required','max:255'
         ]);
         $post->title = $request->title;
         $post->body = $request->body;

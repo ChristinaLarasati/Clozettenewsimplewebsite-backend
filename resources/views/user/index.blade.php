@@ -2,6 +2,14 @@
 
 @section('content')
     <div class="container">
+      <p>Cari Data Users :</p>
+      <form action="/users/search" method="GET">
+        <input type="text" name="search" placeholder="Cari Data Users" value="{{ old('search') }}">
+        <input type="submit" value="Search">
+      </form>
+
+      <br/>
+
         <div class="col-sm-12">
             @foreach ($users as $user)
                 <div class="col-sm-3 text-center" style="padding: 5px;">

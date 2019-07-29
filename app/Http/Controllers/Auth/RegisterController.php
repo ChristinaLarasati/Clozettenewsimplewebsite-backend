@@ -51,7 +51,9 @@ class RegisterController extends Controller
             'username' => 'required|string|max:255|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'bio' => 'required|min:5'
+            'bio' => 'required|min:5',
+            'no_telp' => 'required', 'string', 'min:12',
+            'negara' => 'required', 'string',
         ]);
     }
 
@@ -68,7 +70,9 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'profile_picture' => "http://gravatar.com/avatar/" . md5(strtolower(trim($data['email']))) . "?d=monsterid",
-            'bio' => $data['bio']
+            'bio' => $data['bio'],
+            'no_telp' => $data['no_telp'],
+            'negara' => $data['negara']
         ]);
     }
 }

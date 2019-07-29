@@ -37,13 +37,6 @@
                               @endforeach
                           </select>
                         </div>
-                        <div class="form-group">
-                            <select class="form-control select2-class" name="tags[]" multiple>
-                                @foreach (Auth::user()->friends as $friend)
-                                    <option value="{{ $friend->id }}">{{ $friend->user2->username }}</option>
-                                @endforeach
-                            </select>
-                        </div>
                         <input type="submit" value="Post" class="btn btn-primary btn-block">
                     </div>
                 </div>

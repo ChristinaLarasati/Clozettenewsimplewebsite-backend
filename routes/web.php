@@ -35,9 +35,13 @@ Route::post('/like', 'LikeController@index')->middleware('auth');
 Route::post('/comment', 'CommentController@index')->middleware('auth');
 
 Route::get('/users', 'HomeController@listUser');
+Route::get('/users/search', 'HomeController@search');
 Route::get('/users/{id}', 'HomeController@showUser')->name('user.show');
 
 Route::post('/friend', 'FriendController@index')->middleware('auth');
 Route::post('/friend/remove', 'FriendController@remove')->middleware('auth');
 Route::get('/friend/{id}', 'FriendController@showFriends')->middleware('auth')->name('friend.show');
 Route::post('/request', 'FriendController@request')->middleware('auth');
+
+Route::get('/post/category/tutorials', 'CategoryController@showTutorials');
+Route::get('/post/category/insiders', 'CategoryController@showInsiders');

@@ -13,6 +13,7 @@ class CreateLikesTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('likes');
         Schema::create('likes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('post_id')->unsigned();

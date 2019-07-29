@@ -34,4 +34,22 @@ class CategoryController extends Controller
         }
         return redirect('/post');
     }
+
+    public function showTutorials($name='tutorials') {
+        $category = Category::all()->where('name', '=', 'tutorials')->first();
+        if ($category != null) {
+            $posts = Post::all()->where('category_id', '=', '7')->sortByDesc('id');
+            return view('category.showTutorials')->withPosts($posts);
+        }
+        return redirect('/post');
+    }
+
+    public function showInsiders($name='insiders') {
+        $category = Category::all()->where('name', '=', 'insiders')->first();
+        if ($category != null) {
+            $posts = Post::all()->where('category_id', '=', '8')->sortByDesc('id');
+            return view('category.showInsiders')->withPosts($posts);
+        }
+        return redirect('/post');
+    }
 }
