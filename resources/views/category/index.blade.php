@@ -12,7 +12,7 @@
             @foreach ($categories as $category)
                 <div class="panel panel-default">
                   <div class="panel-body">
-                    {{ $category->name }}
+                    {{ ucwords(trans($category->name)) }}
                   </div>
                   <div class="panel-footer">
                       <small>Created by {{ $category->user->username }}</small>
@@ -27,7 +27,7 @@
                     {{ csrf_field() }}
                     <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                       <label for="name control-label">Name</label>
-                      <input type="text" class="form-control" id="name" placeholder="Enter your category name" name="name">
+                      <input type="text" class="form-control" id="name" placeholder="Enter category name" name="name">
                       @if ($errors->has('name'))
                           <small class="text-danger">{{ $errors->first('name') }}</small>
                       @endif

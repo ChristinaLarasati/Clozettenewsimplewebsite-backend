@@ -43,5 +43,5 @@ Route::post('/friend/remove', 'FriendController@remove')->middleware('auth');
 Route::get('/friend/{id}', 'FriendController@showFriends')->middleware('auth')->name('friend.show');
 Route::post('/request', 'FriendController@request')->middleware('auth');
 
-Route::get('/post/category/tutorials', 'CategoryController@showTutorials');
-Route::get('/post/category/insiders', 'CategoryController@showInsiders');
+// ->name('category.tutorials')->where('id', '[7,8,9,10,11,12]');
+// ->name('category.insiders')->where('id', '[3,4,5,6]');

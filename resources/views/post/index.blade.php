@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
+
 @section('content')
     <link rel="stylesheet" href="/css/select2.css">
     <script src="/js/select2.js"></script>
+
+
+
     <div class="container">
         <div class="col-sm-9">
             @if (Session::has('success'))
@@ -33,7 +37,7 @@
                         <div class="form-group">
                           <select class="form-control" name="category">
                               @foreach ($categories as $category)
-                                  <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                  <option value="{{ $category->id }}">{{ucwords(trans($category->name)) }}</option>
                               @endforeach
                           </select>
                         </div>
@@ -41,6 +45,34 @@
                     </div>
                 </div>
             </form>
+            <div class="panel panel-default">
+              <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Tutorials <span class="caret"></span>
+                  </button>
+
+                  <ul class="dropdown-menu" role="menu">
+                      <li><a href="{{ route('category.showAll', [$category->name='tutorials - hijab']) }}">Hijab</a></li>
+                      <li><a href="{{ route('category.showAll', [$category->name='tutorials - diy projects']) }}">DIY Projects</a></li>
+                      <li><a href="{{ route('category.showAll', [$category->name='tutorials - nails']) }}">Nails</a></li>
+                      <li><a href="{{ route('category.showAll', [$category->name='tutorials - hair']) }}">Hair</a></li>
+                      <li><a href="{{ route('category.showAll', [$category->name='tutorials - make up']) }}">Make Up</a></li>
+                      <li><a href="{{ route('category.showAll', [$category->name='tutorials - skin care']) }}">Skin Care</a></li>
+              </div>
+
+              <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Insiders <span class="caret"></span>
+                  </button>
+
+                  <ul class="dropdown-menu" role="menu">
+                      <li><a href="{{ route('category.showAll', [$category->name='insiders - beauty']) }}">Beauty</a></li>
+                      <li><a href="{{ route('category.showAll', [$category->name='insiders - hijab']) }}">Hijab</a></li>
+                      <li><a href="{{ route('category.showAll', [$category->name='insiders - fashion']) }}">Fashion</a></li>
+                      <li><a href="{{ route('category.showAll', [$category->name='insiders - lifestyle']) }}">Lifestyle</a></li>
+              </div>
+
+            </div>
 
             @foreach ($posts as $post)
                 <div class="panel panel-default">
@@ -80,7 +112,7 @@
                         <img src="/images/{{ $post->image }}" alt="Image" width="100%" height="600">
                     @endif
                     <br />
-                    Category: <div class="badge">{{ $post->category['name'] }}</div>
+                    Category: <div class="badge">{{ ucwords(trans($post->category['name'])) }}</div>
                   </div>
                   <div class="panel-footer" data-postid="{{ $post->id }}">
                       @php
@@ -116,11 +148,21 @@
                 </div>
             @endforeach
         </div>
-        <div class="col-sm-3">
-            @foreach ($categories as $category)
-                <a href="{{ route('category.showAll', [$category->name]) }}" class="badge">{{ $category->name }}</a>
-            @endforeach
+
+        <div class="container" background="blue">
+          <div class="col-sm-3" color="blue">
+          @foreach ($categories as $category)
+              <a href="{{ route('category.showAll', [$category->name]) }}" class="badge">{{ ucwords(trans($category->name)) }}</a>
+          @endforeach
         </div>
+      </div>
+
+        <!-- <div class="col-sm-3 col-yellow">
+              @foreach ($categories as $category)
+                  <a href="{{ route('category.showAll', [$category->name]) }}" class="badge">{{ ucwords(trans($category->name)) }}</a>
+              @endforeach
+        </div> -->
+
     </div>
     <script type="text/javascript">
         $('.select2-class').select2();

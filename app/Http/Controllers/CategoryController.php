@@ -16,7 +16,7 @@ class CategoryController extends Controller
     }
     public function store(Request $request) {
         $this->validate($request, [
-            'name' => 'required|unique:categories|max:255'
+            'name' => 'required|unique:categories|max:255',
         ]);
         $category = new Category;
         $category->name = strtolower($request->name);
@@ -26,30 +26,12 @@ class CategoryController extends Controller
         Session::flash('success', 'Category was added succesfully');
         return redirect('/category');
     }
+
     public function showAll($name) {
         $category = Category::all()->where('name', '=', $name)->first();
         if ($category != null) {
             $posts = Post::all()->where('category_id', '=', $category->id)->sortByDesc('id');
             return view('category.showAll')->withPosts($posts);
         }
-        return redirect('/post');
-    }
-
-    public function showTutorials($name='tutorials') {
-        $category = Category::all()->where('name', '=', 'tutorials')->first();
-        if ($category != null) {
-            $posts = Post::all()->where('category_id', '=', '7')->sortByDesc('id');
-            return view('category.showTutorials')->withPosts($posts);
-        }
-        return redirect('/post');
-    }
-
-    public function showInsiders($name='insiders') {
-        $category = Category::all()->where('name', '=', 'insiders')->first();
-        if ($category != null) {
-            $posts = Post::all()->where('category_id', '=', '8')->sortByDesc('id');
-            return view('category.showInsiders')->withPosts($posts);
-        }
-        return redirect('/post');
     }
 }
