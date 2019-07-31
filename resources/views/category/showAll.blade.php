@@ -41,7 +41,7 @@
                         <img src="/images/{{ $post->image }}" alt="Image" width="100%" height="600">
                     @endif
                     <br />
-                    Category: <div class="badge">{{ $post->category->name }}</div>
+                    Category: <div class="badge">{{ ucwords(trans($post->category->name)) }}</div>
                   </div>
                   <div class="panel-footer" data-postid="{{ $post->id }}">
                       @php

@@ -37,6 +37,7 @@
                           $c = 1;
                           $likeCount = $post->likes()->where('like', '=', true)->count();
                           $dislikeCount = $post->likes()->where('like', '=', false)->count();
+                          <!-- $commentCount = $post->comments()->where('comment', '=', true)->count(); -->
                       @endphp
                       @foreach (Auth::user()->likes as $like)
                           @if ($like->post_id == $post->id)

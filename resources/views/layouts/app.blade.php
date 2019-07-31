@@ -56,6 +56,35 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Tutorials <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                  <li><a href="{!! route('category.showAll', ['name'=>'tutorials - hijab']) !!}">Hijab</a></li>
+                                  <li><a href="{!! route('category.showAll', ['name'=>'tutorials - diy projects']) !!}">DIY Projects</a></li>
+                                  <li><a href="{!! route('category.showAll', ['name'=>'tutorials - nails']) !!}">Nails</a></li>
+                                  <li><a href="{!! route('category.showAll', ['name'=>'tutorials - hair']) !!}}">Hair</a></li>
+                                  <li><a href="{!! route('category.showAll', ['name'=>'tutorials - make up']) !!}">Make Up</a></li>
+                                  <li><a href="{!! route('category.showAll', ['name'=>'tutorials - skin care']) !!}">Skin Care</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Insiders <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                  <li><a href="{!! route('category.showAll', ['name'=>'insiders - beauty']) !!}">Beauty</a></li>
+                                  <li><a href="{!! route('category.showAll', ['name'=>'insiders - hijab']) !!}">Hijab</a></li>
+                                  <li><a href="{!! route('category.showAll', ['name'=>'insiders - fashion']) !!}">Fashion</a></li>
+                                  <li><a href="{!! route('category.showAll', ['name'=>'insiders - lifestyle']) !!}}">Lifestyle</a></li>
+                                </ul>
+                            </li>
+
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Friend Request <span class="caret"></span>
