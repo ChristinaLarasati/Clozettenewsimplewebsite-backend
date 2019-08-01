@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">
-                        <img src="{{ $user->profile_picture }}" alt="">
+                        <img src="{{ $user->avatar }}" alt="">
                         {{ $user->username }}
                         <div class="pull-right" data-friendid="{{ $user->id }}">
                             @if (Auth::check())

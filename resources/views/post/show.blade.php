@@ -2,30 +2,25 @@
 
 @section('content')
     <div class="container">
-        <div class="col-sm-6 col-sm-offset-3">
+        <div class="col-sm-9-centered">
             <div class="panel panel-default" style="margin: 0; border-radius: 0;">
               <div class="panel-heading">
-                <h3 class="panel-title">
-                    {{ $post->title }},
-                    @if ($post->friends()->count() > 0)
-                        <small>
-                            with
-                            @foreach ($post->friends as $tag)
-                                {{ $tag->user2->username }},
-                            @endforeach
-                        </small>
-                    @endif
+                <h2 class="panel-title">
+                    <strong>{{ $post->title }}</strong> - Created by {{ $post->user['username'] }}
                     <div class="pull-right">
                         <a href="{{ url('/post') }}">Return back</a>
                     </div>
-                </h3>
+                </h2>
               </div>
               <div class="panel-body">
                 {{ $post->body }}
+                <br/>
+                <br/>
                 @if ($post->image != null)
-                    <img src="/images/{{ $post->image }}" alt="Image" width="100%" height="600">
+                    <img src="/images/{{ $post->image }}" alt="Image" width="100%" height="600%">
                 @endif
-                <br />
+                <br/>
+                <br/>
                 <div class="badge">
                     {{ $post->category->name }}
                 </div>
@@ -37,7 +32,7 @@
                           $c = 1;
                           $likeCount = $post->likes()->where('like', '=', true)->count();
                           $dislikeCount = $post->likes()->where('like', '=', false)->count();
-                          <!-- $commentCount = $post->comments()->where('comment', '=', true)->count(); -->
+
                       @endphp
                       @foreach (Auth::user()->likes as $like)
                           @if ($like->post_id == $post->id)

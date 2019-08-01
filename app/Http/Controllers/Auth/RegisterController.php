@@ -69,7 +69,7 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'profile_picture' => "http://gravatar.com/avatar/" . md5(strtolower(trim($data['email']))) . "?d=monsterid",
+            'avatar' => $data['avatar'],
             'bio' => $data['bio'],
             'no_telp' => $data['no_telp'],
             'negara' => $data['negara']

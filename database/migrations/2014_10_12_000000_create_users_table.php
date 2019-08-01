@@ -19,10 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('profile_picture');
+            $table->string('avatar')->default('default.jpg');
             $table->text('bio');
-            // $table->date('tgl_lahir');
-          //  $table->string('kode_verif_admin');
             $table->string('no_telp');
             $table->string('negara');
             $table->rememberToken();

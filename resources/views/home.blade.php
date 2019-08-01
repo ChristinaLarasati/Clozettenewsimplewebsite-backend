@@ -5,14 +5,29 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
+
+              <br/>
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <img src="/uploads/avatars/{{$user->avatar}}"
+                          style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
+                        <h2> {{ Auth::user()->username }}'s Profile</h2>
+                          <form enctype="multipart/form-data" action="/home" method="POST">
+                            <label>Update Profile Image</label>
+                            <input type="file" name="avatar">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <button type="submit" class="btn btn-md btn-primary">Save</button>
+                        </form>
+                    </div>
+                </div>
+                <br/>
                 <div class="panel-heading">
-                    <h3 class="panel-title">
-                        <img src="{{ Auth::user()->profile_picture }}" alt="">
-                        Welcome {{ Auth::user()->username }}
+                    <h2 class="panel-title">
+                        <strong>Welcome {{ Auth::user()->username }}</strong>
                         <div class="pull-right">
                             <a href="{{ route('friend.show', Auth::user()->id) }}">View Friends</a>
                         </div>
-                    </h3>
+                    </h2>
                 </div>
                 <div class="panel-body">
                     <div>
@@ -137,7 +152,7 @@
                                             <div class="panel panel-default">
                                               <div class="panel-heading">
                                                 <h3 class="panel-title">
-                                                    {{ $post->title }} 
+                                                    {{ $post->title }}
                                                     <div class="pull-right">
                                                         <div class="dropdown">
                                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

@@ -81,7 +81,7 @@
                                   <li><a href="{!! route('category.showAll', ['name'=>'insiders - beauty']) !!}">Beauty</a></li>
                                   <li><a href="{!! route('category.showAll', ['name'=>'insiders - hijab']) !!}">Hijab</a></li>
                                   <li><a href="{!! route('category.showAll', ['name'=>'insiders - fashion']) !!}">Fashion</a></li>
-                                  <li><a href="{!! route('category.showAll', ['name'=>'insiders - lifestyle']) !!}}">Lifestyle</a></li>
+                                  <li><a href="{!! route('category.showAll', ['name'=>'insiders - lifestyle']) !!}">Lifestyle</a></li>
                                 </ul>
                             </li>
 
@@ -93,7 +93,7 @@
                                 <ul class="dropdown-menu" role="menu">
                                     @foreach (Auth::user()->friends1->where('approved', '=', false) as $friend1)
                                         <li>
-                                            <img src="{{ $friend1->user1->profile_picture }}" alt="Profile Picture" width="50" height="50">
+                                            <img src="{{ $friend1->user1->avatar }}" alt="Profile Picture" width="50" height="50">
                                             <div style="display: inline-block">
                                                 {{ $friend1->user1->username }}
                                                 <div data-userid="{{ $friend1->user1->id }}">

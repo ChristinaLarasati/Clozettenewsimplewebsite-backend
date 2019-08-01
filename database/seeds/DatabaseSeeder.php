@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
                 'username' => $faker->userName,
                 'email' => $faker->email,
                 'password' => Hash::make('password'),
-                'profile_picture' => "http://gravatar.com/avatar/" . md5(strtolower(trim($faker->email))) . "?d=monsterid",
+                'avatar' => "http://gravatar.com/avatar/" . md5(strtolower(trim($faker->email))) . "?d=monsterid",
                 'bio' => $faker->text
             ]);
         }

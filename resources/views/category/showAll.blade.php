@@ -2,20 +2,12 @@
 
 @section('content')
     <div class="container">
-        <div class="col-sm-6 col-sm-offset-3">
+        <div class="col-sm-9-centered">
             @foreach ($posts as $post)
                 <div class="panel panel-default">
                   <div class="panel-heading">
                     <h3 class="panel-title">
-                        Created by {{ $post->user->username }}, {{ $post->title }},
-                        @if ($post->friends()->count() > 0)
-                            <small>
-                                with
-                                @foreach ($post->friends as $tag)
-                                    {{ $tag->user2->username }},
-                                @endforeach
-                            </small>
-                        @endif
+                        <strong>{{ $post->title }}</strong> - Created by {{ $post->user['username'] }}
                         <div class="pull-right">
                             <div class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -37,10 +29,13 @@
                   </div>
                   <div class="panel-body">
                     {{ $post->body }}
+                    <br/>
+                    <br/>
                     @if ($post->image != null)
                         <img src="/images/{{ $post->image }}" alt="Image" width="100%" height="600">
                     @endif
-                    <br />
+                    <br/>
+                    <br/>
                     Category: <div class="badge">{{ ucwords(trans($post->category->name)) }}</div>
                   </div>
                   <div class="panel-footer" data-postid="{{ $post->id }}">

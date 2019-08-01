@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManagerStatic as Image;
 use App\Post;
 use Auth;
 use Session;
-use Image;
+//use Image;
 use App\Category;
 use Storage;
 
@@ -118,7 +119,7 @@ class PostController extends Controller
             $image = $request->file('image');
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $location = public_path('/images/' . $filename);
-            Image::make($image)->resize(800, 600)->save($location);
+            Image::make($image)->resize(100,600)->save($location);
             if ($post->image != null) {
                 Storage::delete($post->image);
             }
