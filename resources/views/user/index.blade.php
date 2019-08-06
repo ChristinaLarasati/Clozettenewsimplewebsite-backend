@@ -2,27 +2,36 @@
 
 @section('content')
     <div class="container">
-      <p>Cari Data Users :</p>
-      <form action="/users/search" method="GET">
-        <input type="text" name="search" placeholder="Cari Data Users" value="{{ old('search') }}">
-        <input type="submit" value="Search">
-      </form>
+        <h1><strong> Clozette's Users </strong></h1>
 
-      <br/>
+          <!-- <form action="/users/search" method="GET" role="search">
+        			<div class="input-group">
+        				<input type="text" class="form-control" name="search"
+        					placeholder="Search users"> <span class="input-group-btn">
+        					<button type="submit" class="btn btn-default">
+        						<span class="glyphicon glyphicon-search"></span>
+        					</button>
+        				</span>
+        			</div>
+  	       </form> -->
 
-        <div class="col-sm-12">
-            @foreach ($users as $user)
-                <div class="col-sm-3 text-center" style="padding: 5px;">
-                    <div style="box-shadow: 0 0 10px 1px grey; padding: 20px;">
-                        <img src="{{ $user->avatar }}" alt="Profile Picture" width="50" height="50">
-                        {{ $user->username }}<br />
-                        <a href="{{ route('user.show', $user->id) }}">View User</a>
-                    </div>
-                </div>
-            @endforeach
-            <div class="col-sm-12">
-                {{ $users->links() }}
-            </div>
-        </div>
+           <br/>
+
+           <div class="col-sm-12">
+             @foreach ($users as $user)
+              <div class="col-sm-4 text-center" style="padding: 10px;">
+                  <div style="box-shadow: 0 0 10px 1px grey; padding: 20px;">
+                    <img src="/uploads/avatars/{{$user->avatar}}" alt="Avatar"
+                    style="width:55px; height:55px; float:left; border-radius:50%;">
+                      <strong>{{ $user->username }}</strong><br />
+                      <a href="{{ route('user.show', $user->id) }}">View User</a>
+                  </div>
+              </div>
+              @endforeach
+               <div class="col-sm-12">
+                   {{ $users->links() }}
+               </div>
+           </div>
+
     </div>
 @endsection

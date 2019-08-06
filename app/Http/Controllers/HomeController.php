@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Auth;
 use Image;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -29,10 +30,10 @@ class HomeController extends Controller
         return view('home');
     }
     public function listUser() {
-        $users = User::orderBy('id', 'desc')->paginate(40);
+        $users = User::orderBy('id', 'desc')->orderBy('username')->paginate(9);
         return view('user.index')->withUsers($users);
     }
-    public function showUser($id) {
+    public function showUser($username) {
         $user = User::find($id);
         return view('user.show')->withUser($user);
     }
@@ -42,16 +43,23 @@ class HomeController extends Controller
     }
 
     public function update_avatar(Request $request) {
-        if ($request->hasFile('avatar')) {
-          $avatar = $request -> file ('avatar');
-          $filename = time().'.'.$avatar->getClientOriginalExtension();
-          Image::make($avatar)->resize(300, 300)->save(public_path('/uploads/avatars/'.$filename));
+       if ($request->hasFile('avatar')) {
+         $avatar = $request -> file ('avatar');
+         $filename = time().'.'.$avatar->getClientOriginalExtension();
+         Image::make($avatar)->resize(300, 300)->save(public_path('/uploads/avatars/'.$filename));
+         $user=Auth::user();
+         $user->avatar = $filename;
+         $user ->save();
+       }
+       return view('home', array('user'=>Auth::user()));
+   }
 
-          $user=Auth::user();
-          $user->avatar = $filename;
-          $user ->save();
-        }
-        return view('home', array('user'=>Auth::user()));
-    }
+    // public function search(Request $request) {
+    //   $cari = $request->cari;
+    //
+    //   $user = User::find($username)->where('username','LIKE','%'.$cari.'%')->paginate();
+    //   return view('user.index')->withUsers($users);
+    //
+    // }
 
 }

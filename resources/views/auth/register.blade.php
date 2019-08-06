@@ -74,32 +74,6 @@
                             @endif
                         </div>
 
-                        <!-- <div class="form-group">
-                            <label for="tgl_lahir" class="col-md-4 control-label">Tanggal Lahir</label>
-
-                            <div class='col-md-6'>
-                              <div class="form-group">
-                                  <div class='input-group date' id='tgl_lahir' data-provide="datepicker">
-                                      <input type="text" class="form-control">
-                                        <div class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                              </div>
-                              <script type="text/javascript">
-                                  $(function () {
-                                      $('.datepicker').datepicker();
-                                  });
-                              </script>
-
-                                @if ($errors->has('tgl_lahir'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('tgl_lahir') }}</strong>
-                                    </span>
-                                @endif
-                          </div> -->
-
                         <div class="form-group">
                             <label for="no_telp" class="col-md-4 control-label">Nomor Handphone</label>
 

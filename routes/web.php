@@ -1,5 +1,6 @@
 <?php
-
+use App\User;
+use Illuminate\Support\Facades\Input;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,8 +36,8 @@ Route::post('/like', 'LikeController@index')->middleware('auth');
 Route::post('/comment', 'CommentController@index')->middleware('auth');
 
 Route::get('/users', 'HomeController@listUser');
-Route::get('/users/search', 'HomeController@search');
 Route::get('/users/{id}', 'HomeController@showUser')->name('user.show');
+Route::get('/users/search', 'HomeController@search');
 
 Route::post('/friend', 'FriendController@index')->middleware('auth');
 Route::post('/friend/remove', 'FriendController@remove')->middleware('auth');

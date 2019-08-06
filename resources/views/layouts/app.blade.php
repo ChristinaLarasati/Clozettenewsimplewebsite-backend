@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Clozette Indonesia') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -39,7 +39,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'Clozette Indonesia') }}
                     </a>
                 </div>
 
@@ -59,6 +59,22 @@
 
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Articles <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                  <li><a href="{!! route('category.showAll', ['name'=>'article - beauty']) !!}">Beauty</a></li>
+                                  <li><a href="{!! route('category.showAll', ['name'=>'article - fashion']) !!}">Fashion</a></li>
+                                  <li><a href="{!! route('category.showAll', ['name'=>'article - health']) !!}">Health</a></li>
+                                  <li><a href="{!! route('category.showAll', ['name'=>'article - hijab']) !!}">Hijab</a></li>
+                                  <li><a href="{!! route('category.showAll', ['name'=>'article - lifestyle']) !!}">Lifestyle</a></li>
+                                  <li><a href="{!! route('category.showAll', ['name'=>'article - make up']) !!}">Make Up</a></li>
+                                  <li><a href="{!! route('category.showAll', ['name'=>'article - skin care']) !!}">Skin Care</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Tutorials <span class="caret"></span>
                                 </a>
 
@@ -66,7 +82,7 @@
                                   <li><a href="{!! route('category.showAll', ['name'=>'tutorials - hijab']) !!}">Hijab</a></li>
                                   <li><a href="{!! route('category.showAll', ['name'=>'tutorials - diy projects']) !!}">DIY Projects</a></li>
                                   <li><a href="{!! route('category.showAll', ['name'=>'tutorials - nails']) !!}">Nails</a></li>
-                                  <li><a href="{!! route('category.showAll', ['name'=>'tutorials - hair']) !!}}">Hair</a></li>
+                                  <li><a href="{!! route('category.showAll', ['name'=>'tutorials - hair']) !!}">Hair</a></li>
                                   <li><a href="{!! route('category.showAll', ['name'=>'tutorials - make up']) !!}">Make Up</a></li>
                                   <li><a href="{!! route('category.showAll', ['name'=>'tutorials - skin care']) !!}">Skin Care</a></li>
                                 </ul>
@@ -110,6 +126,8 @@
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                  <img src="/uploads/avatars/{{ Auth::user()->avatar}}"
+                                    style="width:32px; height:32px; postion:absolute; top:10px; left:10px; border-radius:50%">
                                     {{ Auth::user()->username }} <span class="caret"></span>
                                 </a>
 

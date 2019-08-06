@@ -7,8 +7,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">
-                        <img src="{{ $user->avatar }}" alt="">
-                        {{ $user->username }}
+                      <img src="/uploads/avatars/{{$user->avatar}}" alt="Avatar"
+                      style="width:75px; height:75px; float:left; border-radius:50%;">
+                        <strong>{{ $user->username }}</strong>
                         <div class="pull-right" data-friendid="{{ $user->id }}">
                             @if (Auth::check())
                                 @php
