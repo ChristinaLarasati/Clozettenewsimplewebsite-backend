@@ -3,7 +3,7 @@
 ## Getting Started
 To create a project from this repository :
 
-* Clone this project using this url : https://github.com/ChristinaLarasati/Clozettenewsimplewebsite-backend with **git clone projectURL** or using third party software like SourceTree
+* Clone this project using this url : https://github.com/ChristinaLarasati/Clozettenewsimplewebsite-backend with **git clone projectURL** in a new project folder or using third party software like SourceTree
 * Open .env file
 * Make a new database
 * Set .env file with your database's name in line "DB_USERNAME="
