@@ -1,4 +1,4 @@
-# Clozettenewsimplewebsite-backend
+# Clozette New Simple Website - Backend
 
 ## Getting Started
 To create a project from this repository :
