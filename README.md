@@ -1,7 +1,8 @@
 # laravel
-Please follow these below instruction to run successfully
+Follow this step to start the project:
+clone the project: https://github.com/ChristinaLarasati/Clozettenewsimplewebsite-backend.git
 
-Step 1 : open terminal point to the folder where you download the laravel
+Step 1 : open terminal point to the folder where you download the project
 <br/>
 Step 2 : Run the command in terminal : "composer install"
 <br/>
